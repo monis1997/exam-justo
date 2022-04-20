@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.justo.viewmodel.PersonViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/detail_iv"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"
+                    android:scaleType="fitCenter"
+                    app:imageUrl="@{viewModel.person.results[0].picture.large}"
+                    tools:src="@drawable/avatar" />
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="@{viewModel.person.results[0].name.first}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                    tools:text="Batman" />
+
+            </LinearLayout>
+            //datos Personales
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/datos_card"
+                style="@style/sectionCard"
+                app:strokeWidth="1dp"
+                app:strokeColor="#9C000000"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/datos_section_title"
+                        style="@style/sectionTitle"
+                        android:text="@string/datos_label" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/datos_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/email_title"
+                            style="@style/attributeGrid"
+                            android:layout_width="104dp"
+                            android:layout_height="24dp"
+                            android:text="@string/email_label"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/email_text"
+                            style="@style/textGrid"
+                            android:layout_width="278dp"
+                            android:layout_height="22dp"
+                            android:text="@{viewModel.person.results[0].email}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/email_title"
+                            tools:text="100" />
+
+                        <TextView
+                            android:id="@+id/genero_title"
+                            style="@style/attributeGrid"
+                            android:text="@string/genero_label"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/email_title" />
+
+                        <TextView
+                            android:id="@+id/genero_text"
+                            style="@style/textGrid"
+                            android:text="@{viewModel.person.results[0].gender}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/genero_title"
+                            tools:text="100" />
+
+                        <TextView
+                            android:id="@+id/phone_title"
+                            style="@style/attributeGrid"
+                            android:text="@string/phone_label"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/genero_title" />
+
+                        <TextView
+                            android:id="@+id/phone_text"
+                            style="@style/textGrid"
+                            android:text="@{viewModel.person.results[0].phone}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/phone_title"
+                            tools:text="100" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            //direction
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/location_card"
+                style="@style/sectionCard"
+                app:strokeWidth="1dp"
+                app:strokeColor="#9C000000"
+                app:cardElevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/location_section_title"
+                        style="@style/sectionTitle"
+                        android:text="@string/location_label" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/location_contents"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/location_title"
+                            style="@style/attributeGrid"
+                            android:text="@string/street_label"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/location_text"
+                            style="@style/textGrid"
+                            android:text="@{viewModel.person.results[0].location.street.name}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/location_title"
+                            tools:text="100" />
+
+                        <TextView
+                            android:id="@+id/city_title"
+                            style="@style/attributeGrid"
+                            android:text="@string/city_label"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_title" />
+
+                        <TextView
+                            android:id="@+id/city_text"
+                            style="@style/textGrid"
+                            android:text="@{viewModel.person.results[0].location.city}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/city_title"
+                            tools:text="100" />
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

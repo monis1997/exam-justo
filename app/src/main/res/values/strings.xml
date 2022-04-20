@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">People</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="location_label">Direccion</string>
+    <string name="street_label">Street:</string>
+    <string name="city_label">City:</string>
+    <string name="datos_label">Datos Personales</string>
+    <string name="email_label">Email:</string>
+    <string name="genero_label">Género:</string>
+    <string name="phone_label">Telefono:</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/personListFragment">
+
+    <fragment
+        android:id="@+id/personListFragment"
+        android:name="com.example.justo.view.fragment.list.PersonListFragment"
+        android:label="Person List"
+        tools:layout="@layout/fragment_person_list" >
+        <action
+            android:id="@+id/action_superheroListFragment_to_superheroDetailFragment"
+            app:destination="@id/superheroDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/superheroDetailFragment"
+        android:name="com.example.justo.view.fragment.detail.PersonDetailFragment"
+        android:label="Person Details"
+        tools:layout="@layout/fragment_person_detail" >
+        <!--<argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="1" />-->
+    </fragment>
+</navigation>
